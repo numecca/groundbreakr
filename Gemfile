@@ -4,7 +4,6 @@ gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'mysql2'
 gem 'omniauth'
 gem 'omniauth-runkeeper'
 
@@ -18,6 +17,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development, :test do
+  gem 'mysql2'
 end
 
 group :production do
