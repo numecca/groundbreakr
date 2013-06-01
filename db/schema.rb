@@ -28,4 +28,16 @@ ActiveRecord::Schema.define(:version => 20130601211320) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "funds", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.string   "country"
+    t.string   "description"
+    t.string   "profile_url"
+    t.string   "avatar_url"
+    t.decimal  "target_amount", :precision => 10, :scale => 0
+    t.decimal  "raised_amount", :precision => 10, :scale => 0
+  end
+
 end

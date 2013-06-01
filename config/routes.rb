@@ -5,6 +5,7 @@ Groundbreakr::Application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure'
 
   get '/logout', :to => 'sessions#destroy'
+  resources :funds
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
