@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @fund.name %>
+  <b>Description:</b>
+  <p>
+    <strong><%= @fund.description %></strong>
+  </p>
+  <%= image_tag @fund.avatar_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_fund_path(@fund) %> |
+<%= link_to 'Back', funds_path %>
