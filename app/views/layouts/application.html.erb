@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
 <head>
   <title>Groundbreakr</title>
@@ -7,19 +8,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+    <div id="user_nav">
+      <% if current_user %>
+        Signed in as <%= current_user.name %>
+        <%= link_to "Sign out", signout_path %>
+      <% else %>
+        <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
+      <% end %>
+    </div>
 
-<div id="user_nav">
-  <% if current_user %>
-    Signed in as <%= current_user.name %>
-    <%= link_to "Sign out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
-  <% end %>
+    <%= yield %>
+
 </div>
-
-<%= yield %>
-
-
-
 </body>
 </html>
