@@ -22,9 +22,12 @@ class ApplicationController < ActionController::Base
     user_runs = runkeeper_user.fitness_activities.parsed_response["items"]
     if (database_user.run_count < user_runs.count)
       database_user.update_attribute(:run_count, user_runs.count)
-      featured_fund.update_attribute(:raised_amount, featured_fund.raised_amount + miles_to_dollars_conversion(runkeeper_user.fitness_activities.parsed_response["items"].first["total_distance"]))
+      featured_fund.update_attribute(:raised_amount, featured_fund.raised_amount + miles_to_dollars_conversion(user_runs.first["total_distance"]))
+      database_user.update_attribute(:total_distance, database_user.total_distance + (user_runs.first["total_distance"]/1609.34).round(3))
+      database_user.update_attribute(:total_donated, database_user.total_donated + miles_to_dollars_conversion(user_runs.first["total_distance"]))
     end
   end
+
 
   def miles_to_dollars_conversion(total_meters)
     miles = (total_meters/1609.34).round(3)
@@ -37,4 +40,6 @@ class ApplicationController < ActionController::Base
   helper_method :featured_fund
   helper_method :miles_to_dollars_conversion
   helper_method :update_progress_bar
+  helper_method :total_distance
+  helper_method :database_user
 end
