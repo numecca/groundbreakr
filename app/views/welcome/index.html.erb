@@ -1,8 +1,35 @@
+<h1>Listing funds</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Picture</th>
+ 
+  </tr>
+
+<% @funds.each do |fund| %>
+  <tr>
+    <td><%= fund.name %></td>
+    <td><%= image_tag(fund.avatar_url) %></td>
+ 
+  </tr>
+<% end %>
+</table>
+
+
+
+
+
+
+
+
 Hello!
 
 
-These are the runs you've done:
 
-<%- @user.fitness_activities.parsed_response["items"].each_with_index do |activity, index| %>
-  <p>You just ran <%= (activity["total_distance"]/1609.34).round(3) %> miles.</p>
+<%- if current_user && @user.fitness_activities %>
+  <p>These are the runs you've done: </p>
+  <%- @user.fitness_activities.parsed_response["items"].each_with_index do |activity, index| %>
+    <p>You just ran <%= (activity["total_distance"]/1609.34).round(3) %> miles.</p>
+  <% end %>
 <% end %>
