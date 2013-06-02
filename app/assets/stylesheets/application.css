@@ -240,14 +240,8 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
-  background-image: url('/assets/background.jpg')!important;
-  background-repeat: no-repeat !important;
-  background: url(/assets/background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #282828;
+
 }
 
 a {

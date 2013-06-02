@@ -10,6 +10,8 @@
   <%= image_tag @fund.avatar_url %>
 </p>
 
+<%= render :partial => "shared/leaderboard" %>
+
 
 <%= link_to 'Edit', edit_fund_path(@fund) %> |
 <%= link_to 'Back', funds_path %>

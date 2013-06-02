@@ -5,3 +5,68 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #282828;
+
+}
+.content {
+  min-height: 50px;
+}
+.shit {
+  display: none;
+  padding: 10px 25px;
+  color: #f9f9f9;
+}
+.shit h1 {
+  color: #de8372;
+}
+.shit #live, .shit #completed, .shit #leaderboard {
+  min-height: 600px;
+}
+.content-wrapper {
+  width: 1064px;
+  margin: 0px auto;
+  background-color: #462446;
+}
+#tabs #tabs_container {
+  background-color: #311a31;
+}
+#tabs #tabs_container ul#home_tabs {
+  background-color: #311a31;
+}
+#tabs_container ul#tabs li {
+  display: block;
+  float: left;
+  padding: 5px 10px;  display: block;
+  float: left;
+  padding: 5px 10px;  display: block;
+  float: left;
+  padding: 5px 10px;
+}
+.top_fold {
+  display: block;
+  background: url('/assets/content_background.jpg') no-repeat center;
+  height: 662px;
+}
+a#toggle-watsi {
+  display: block;
+  position: absolute;
+  width: 265px;
+  height: 143px;
+  background-color: transparent;
+  top: 518px;
+}
+.container {
+  width: 1064px;
+}
+#user_nav {
+  color: #ffffff;
+  padding-top: 10px;
+  text-align: right;
+  padding-right: 20px;
+}

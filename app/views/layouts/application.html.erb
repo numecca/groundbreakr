@@ -9,18 +9,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-    <div id="user_nav">
-      <% if current_user %>
-        Signed in as <%= current_user.name %>
-        <%= link_to "Sign out", signout_path %>
-      <% else %>
-        <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
-      <% end %>
+<div class="content-wrapper">
+  <div class="top_fold">
+    <a href="#" id="toggle-watsi"></a>
+    <div class="container">
+        <div id="user_nav">
+          <% if current_user %>
+            Signed in as <%= current_user.name %>
+            <%= link_to "Sign out", signout_path %>
+          <% else %>
+            <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
+          <% end %>
+        </div>
     </div>
-
-    <%= yield %>
-
+  </div>
+  <div class="content">
+    <div class="shit">
+      <%= yield %>
+    </div>
+  </div>
 </div>
+
 </body>
 </html>
