@@ -27,9 +27,9 @@ Hello!
 
 
 
-<%- if current_user && @user.fitness_activities %>
+<%- if current_user && @user_runs %>
   <p>These are the runs you've done: </p>
-  <%- @user.fitness_activities.parsed_response["items"].each_with_index do |activity, index| %>
+  <%- @user_runs.each_with_index do |activity, index| %>
     <p>You just ran <%= (activity["total_distance"]/1609.34).round(3) %> miles.</p>
   <% end %>
 <% end %>
