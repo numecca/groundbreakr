@@ -9,6 +9,7 @@ gem 'omniauth-runkeeper'
 gem 'mysql2'
 gem 'httparty'
 gem 'slim'
+gem 'runkeeper'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +25,7 @@ end
 
 group :development, :test do
   gem 'mysql2'
+  gem 'debugger'
 end
 
 group :production do
