@@ -12,7 +12,12 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
+      user.run_count = 0
     end
+  end
+
+  def self.update_fund(number_of_runs)
+    update_attribute(:run_count, number_of_runs)
   end
 
 end
