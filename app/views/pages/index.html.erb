@@ -1,2 +1,57 @@
-Test pages#index <br>
-<%= link_to "Index", page_path("index"), class: "btn btn-primary" %>
+<div class="container">
+  <style type="text/css">
+  .landing {
+  	color: #FFF;
+  	background: rgba(0, 0, 0, .7);
+  	width: 600px;
+      margin: 0 auto;
+  }
+  .bg-stretch {
+  	background-image: url("/assets/background.jpg") !important;
+  	background-repeat: no-repeat !important;
+  	background: url(/assets/background.jpg) no-repeat center center fixed;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	width: 100%;
+  	height: 100%;
+  	margin: 0;
+  	padding: 0;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+      z-index: -1;
+  }
+  </style>
+
+  <div class="bg-stretch"></div>
+  <br>
+  <br>
+  <br>
+  <div class="hero-unit landing">
+    <center>
+      <h1>THE MILES YOU RUN</h1>
+      <h2>solve a problem for a person in need</h2>
+        <div id="mc_embed_signup">
+        <form action="http://hackerhouse.us4.list-manage.com/subscribe/post?u=29b7e39a8640d7a47952fb6cf&amp;id=367ec046b0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <p>Join us and help a real person</p>
+        <div class="mc-field-group">
+          <!--<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>-->
+        <!--</label>-->
+          <br>
+          <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+        </div>
+          <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>
+          <div class="clear">
+            <br>
+            <input type="submit" value="Count me in!" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-large">
+          </div>
+        </form>
+        </div>
+    </center>
+  </div>
+</div>
