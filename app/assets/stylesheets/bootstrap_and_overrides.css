@@ -23,9 +23,10 @@ body {
 }
 .shit h1 {
   color: #de8372;
+  margin-bottom: 20px;
 }
 .shit #live, .shit #completed, .shit #leaderboard {
-  min-height: 600px;
+  min-height: 500px;
   clear: both;
   background: #462446;
   margin-top: -12px;
@@ -43,6 +44,16 @@ body {
   background-color: white;
 }
 .fund-tile:nth-child(1), .fund-tile:nth-child(2){
+  margin-right: 10px;
+}
+.funded-tile {
+  color: #333333;
+  display: inline-block;
+  width: 300px;
+  height: 360px;
+  background-color: white;
+}
+.funded-tile:nth-child(1), .fund-tile:nth-child(2){
   margin-right: 10px;
 }
 .fund-info{
@@ -92,6 +103,13 @@ body {
   text-align: center;
   padding-top: 15px;
 }
+.funded-button {
+  width: 300px;
+  height: 62px;
+  background: url('/assets/funded_button.png') no-repeat center;
+  margin-top: 99px;
+}
+
 
 .run-button {
     background-color:#ffc848;

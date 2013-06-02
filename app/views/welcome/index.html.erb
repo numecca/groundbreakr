@@ -26,7 +26,7 @@
         </div>
         <div class="fund-stats">
           <div class="stat-block">
-            <%= rand(70..130) %>
+            <%= (70..130).to_a.sample %>
             <div class="stat-info">COMPLETED</div>
           </div>
           <div class="stat-block">
@@ -34,7 +34,7 @@
             <div class="stat-info">RAISED SO FAR</div>
           </div>
           <div class="stat-block">
-            <%= rand(30..100) %>
+            <%= (30..100).to_a.sample %>
             <div class="stat-info">HEROES</div>
           </div>
         </div>
@@ -45,18 +45,32 @@
       </div>
     <% end %>
   </div>
-    <%- if current_user && @user_runs %>
-      <p>These are the runs you've done: </p>
-      <%- @user_runs.each_with_index do |activity, index| %>
-        <p>You just ran <%= (activity["total_distance"]/1609.34).round(3) %> miles.</p>
-      <% end %>
-    <% end %>
   </div>
   <div id="completed">
-    <h1>UGH<h1>
+    <h1>COMPLETED RUNS FOR WATSI</h1>
+
+    <div class="funds-container">
+    <% @completed_funds.each do |fund| %>
+      <div class="funded-tile">
+        <%= image_tag(fund.avatar_url) %>
+        <%- progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>
+        <progress value="100" max="100"></progress>
+        <div class="fund-info">
+          <div class="fund-blurb">
+            <h3><%= fund.name %>'s Story</h3>
+            <%= fund.description %>
+          </div>
+          <div class="fund-sponsor">
+          </div>
+        </div>
+        <div class="funded-button">
+        </div>
+      </div>
+    <% end %>
+  </div>
   </div>
   <div id="leaderboard">
-    <h2>TOP RUNNERS</h2>
+    <h1>TOP RUNNERS</h1>
     <%= render :partial => "shared/leaderboard" %>
   </div>
 </div>

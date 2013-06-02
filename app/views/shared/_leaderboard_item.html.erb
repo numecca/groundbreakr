@@ -1,5 +1,5 @@
 <tr>
-  <td><img src="http://lorempixel.com/40/40/sports/<%= rand(1..10).to_s %>"></td>
+  <td><img src="http://lorempixel.com/40/40/sports/<%= (1..10).to_a.sample %>"></td>
   <td><%= name %></td>
   <td>
     <progress max="100" style="width: <%= progress %>px;">

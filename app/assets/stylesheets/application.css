@@ -6188,6 +6188,7 @@ a.badge:focus {
   width: 800px;
   height: auto;
   background-color: white;
+  margin: 0px auto;
   table td {
     vertical-align: middle;
   }
