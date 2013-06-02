@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   def miles_to_dollars_conversion(total_meters)
     miles = (total_meters/1609.34).round(3)
-    amount_to_fund = miles * 1000
+    amount_to_fund = miles * 4000
   end
 
 
