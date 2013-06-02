@@ -11,8 +11,6 @@
  *= require_self
  *= require_tree .
  */
-@import "bootstrap";
-@import 'mixins/*';
 /*!
  * Bootstrap v2.3.2
  *
@@ -237,7 +235,7 @@ textarea {
 }
 
 body {
-  @include montserrat;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   font-size: 14px;
   line-height: 20px;
@@ -6200,7 +6198,7 @@ a.badge:focus {
   }
 }
 .leaderboard_title {
-  @include montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 20px;
   line-height: 28px;
