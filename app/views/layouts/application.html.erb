@@ -8,7 +8,18 @@
 </head>
 <body>
 
+<div id="user_nav">
+  <% if current_user %>
+    Signed in as <%= current_user.name %>
+    <%= link_to "Sign out", signout_path %>
+  <% else %>
+    <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
+  <% end %>
+</div>
+
 <%= yield %>
+
+
 
 </body>
 </html>

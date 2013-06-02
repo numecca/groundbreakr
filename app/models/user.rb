@@ -1,8 +1,19 @@
 class User < ActiveRecord::Base
-  has_many :authorizations
   validates :name, presence: true
 
   attr_accessible :email, :name
+
+  def self.from_omniauth(auth)
+    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+  end
+
+  def self.create_from_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"]
+    end
+  end
 
   def add_provider(auth_hash)
     # Check if the provider already exists, so we don't add it twice
