@@ -2,10 +2,9 @@ class FundsController < ApplicationController
   # GET /funds
   # GET /funds.json
   def index
-    @funds = Fund.all
-
+    @funds = Fund.all.sort_by{|a| a.raised_amount}.first(3)
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @funds }
     end
   end
