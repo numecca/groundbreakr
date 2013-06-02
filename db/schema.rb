@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(:version => 20130602085617) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "provider"
     t.integer  "uid"
-    t.integer  "run_count"
+    t.integer  "run_count",  :default => 0
   end
 
 end

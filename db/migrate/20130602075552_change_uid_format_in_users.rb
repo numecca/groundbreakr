@@ -1,10 +1,8 @@
 class ChangeUidFormatInUsers < ActiveRecord::Migration
   def up
-    connection.execute(%q{
-    alter table users
-    alter column uid
-    type integer using cast(uid as integer)
-    })
+    change_table :users do |t|
+      t.change :uid, :integer
+    end
   end
 
   def down

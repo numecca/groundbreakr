@@ -31,6 +31,89 @@ body {
   margin-top: -12px;
   padding: 20px 32px;
 }
+.funds-container {
+  width: 928px;
+  margin: 0px auto;
+}
+.fund-tile {
+  color: #333333;
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+}
+.fund-tile:nth-child(1), .fund-tile:nth-child(2){
+  margin-right: 10px;
+}
+.fund-info{
+  padding: 0px 15px;
+}
+.fund-stats {
+  clear: both;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+.fund-stats .stat-block {
+  display: inline-block;
+  padding: 10px 25px;
+  border-left: 1px solid #efefef;
+  margin: 0px;
+
+}
+.fund-info .fund-blurb {
+  display: block;
+  float: left;
+  width: 160px;
+  font-size: 11px;
+  line-height: 14px;
+  height: 95px;
+  border-right: 1px solid #efefef;
+  padding: 5px 3px 0px 0px;
+}
+.fund-info .fund-blurb h3 {
+  font-size: 15px;
+  line-height: 14px;
+}
+
+.fund-info .fund-sponsor {
+  display: block;
+  float: left;
+  width: 92px;
+  height: 62px;
+  margin: 10px 0px 0px 10px;
+  background: url('/assets/unilever_sponsor.png') no-repeat center;
+}
+.fund-button {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.run-button {
+    background-color:#ffc848;
+    
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    
+    display:inline-block;
+    color:#454545;
+    font-size:14px;
+    font-weight:bold;
+    padding:6px 38px;
+    text-decoration:none;
+    
+    
+}
+.run-button:hover {
+  background-color:#dba119;
+  color: #222222;
+  text-decoration: none;
+}
+.run-button:active {
+  position:relative;
+  top:1px;
+}
+
 .content-wrapper {
   width: 1064px;
   margin: 0px auto;
@@ -65,7 +148,6 @@ body {
 }
 
 .user_panel {
-  font-family: "Proxima Nova";
   width: 631px;
   height: 380px;
   background: #FFF;
@@ -76,7 +158,6 @@ body {
 }
 
 .user_panel h2 {
-  font-family: "Proxima Nova";
   letter-spacing:3px;
   font-size:18px;
   color: #452446;
@@ -84,7 +165,6 @@ body {
 }
 
 .user_stats_container{
-  font-family: "Proxima Nova";
   margin: 0 auto;
   width:580px;
   height:50px;

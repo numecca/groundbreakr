@@ -7,28 +7,41 @@
     </ul>
   </div>
   <div id="live">
-    <h1>HAY GURL</h1>
+    <h1>CURRENT RUNS FOR WATSI</h1>
 
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Picture</th>
-        <th>Amount Raised</th>
-        <th>Progress</th>
-      </tr>
 
+    <div class="funds-container">
     <% @funds.each do |fund| %>
-      <tr>
-        <td><%= fund.name %></td>
-        <td><%= image_tag(fund.avatar_url) %></td>
-        <td>$<%= fund.raised_amount %> / <%= fund.target_amount %></td>
-        <td>
-          <%= progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>%
-          <progress value="<%= progress_number %>" max="100" style="width: 200px;"></progress>
-        </td>
-      </tr>
+      <div class="fund-tile">
+        <%= image_tag(fund.avatar_url) %>
+        <%- progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>
+        <progress value="<%= progress_number %>" max="100"></progress>
+        <div class="fund-info">
+          <div class="fund-blurb">
+            <h3><%= fund.name %>'s Story</h3>
+            <%= fund.description %>
+          </div>
+          <div class="fund-sponsor">
+          </div>
+        </div>
+        <div class="fund-stats">
+          <div class="stat-block">
+            <%= rand(70..130) %>
+          </div>
+          <div class="stat-block">
+            $<%= fund.raised_amount %> / <%= fund.target_amount %>
+          </div>
+          <div class="stat-block">
+            <%= rand(30..100) %>
+          </div>
+        </div>
+        <div class="fund-button">
+          <a href="/auth/runkeeper" class="run-button">RUN FOR THIS</a>
+        </div>
+  
+      </div>
     <% end %>
-    </table>
+  </div>
     <%- if current_user && @user_runs %>
       <p>These are the runs you've done: </p>
       <%- @user_runs.each_with_index do |activity, index| %>
