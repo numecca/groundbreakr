@@ -1,0 +1,16 @@
+@mixin page-state(
+  $controller: false,
+  $action: false
+) {
+  $selector: html;
+  @each $class_prefix_state in (controller $controller) (action $action) {
+    $class_prefix: nth($class_prefix_state, 1);
+    $state: nth($class_prefix_state, 2);
+    @if $state {
+      $selector: append-selector($selector, '.' + $class_prefix + '-' + $state);
+    }
+  }
+  #{$selector} {
+    @content;
+  }
+}
