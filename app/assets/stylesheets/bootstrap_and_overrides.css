@@ -129,21 +129,42 @@ body {
   height:14px;
 }
 
+.featured-right-container{
+  float:left;
+  text-align: center;
+}
+
 .percent_completed {
   width:100px;
   float:left;
   border-right: 1px solid #DDD;
-  height:75px;
+  height:57px;
+  padding-top: 18px;
 }
 
 .featured_fund_stat {
-  width:100px;
+  width: 124px;
+  border-right: 1px solid #DDD;
+  height: 57px;
   float:left;
+  padding-top: 18px;
+}
+
+.featured_text p {
+  margin:0;
+  padding: 6px;
+}
+
+.subtext {
+  font-size:10px;
+  color: #6b376b;
+  font-weight: bold;
 }
 
 .heros {
   width:100px;
   float:left;
+  padding-top: 18px;
 }
 .featured-logo {
   float:left;
