@@ -1,79 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-<head>
-  <title>Groundbreakr</title>
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class="content-wrapper">
-  <div class="top_fold">
-    <a href="#" id="toggle-watsi"></a>
-    <div class="container">
-        <div id="user_nav">
-          <% if current_user %>
-            Signed in as <%= current_user.name %>
-            <%= link_to "Sign out", signout_path %>
-          <% else %>
-            <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
-          <% end %>
-        </div>
-    </div>
+<div id="tabs">
+  <div id="tabs_container">
+    <ul id="home_tabs">
+      <li><a href="#live" onclick="return false;">Live</a></li>
+      <li><a href="#completed" onclick="return false;">Completed</a></li>
+      <li><a href="#leaderboard" onclick="return false;">Leaderboard</a></li>
+    </ul>
   </div>
-  <div class="content">
-    <div class="shit">
-      <div id="tabs">
-        <div id="tabs_container">
-          <ul id="home_tabs">
-            <li><a href="#live" onclick="return false;">Live</a></li>
-            <li><a href="#completed" onclick="return false;">Completed</a></li>
-            <li><a href="#leaderboard" onclick="return false;">Leaderboard</a></li>
-          </ul>
-        </div>
-        <div id="live">
-          <h1>HAY GURL</h1>
+  <div id="live">
+    <h1>HAY GURL</h1>
 
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Picture</th>
-              <th>Amount Raised</th>
-              <th>Progress</th>
-            </tr>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Picture</th>
+        <th>Amount Raised</th>
+        <th>Progress</th>
+      </tr>
 
-          <% @funds.each do |fund| %>
-            <tr>
-              <td><%= fund.name %></td>
-              <td><%= image_tag(fund.avatar_url) %></td>
-              <td>$<%= fund.raised_amount %> / <%= fund.target_amount %></td>
-              <td>
-                <%= progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>%
-                <progress value="<%= progress_number %>" max="100" style="width: 200px;"></progress>
-              </td>
-            </tr>
-          <% end %>
-          </table>
-          <%- if current_user && @user_runs %>
-            <p>These are the runs you've done: </p>
-            <%- @user_runs.each_with_index do |activity, index| %>
-              <p>You just ran <%= (activity["total_distance"]/1609.34).round(3) %> miles.</p>
-            <% end %>
-          <% end %>
-        </div>
-        <div id="completed">
-          <h1>UGH<h1>
-        </div>
-        <div id="leaderboard">
-          <h2>TOP RUNNERS</h2>
-          <%= render :partial => "shared/leaderboard" %>
-        </div>
-      </div>
-    </div>
+    <% @funds.each do |fund| %>
+      <tr>
+        <td><%= fund.name %></td>
+        <td><%= image_tag(fund.avatar_url) %></td>
+        <td>$<%= fund.raised_amount %> / <%= fund.target_amount %></td>
+        <td>
+          <%= progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>%
+          <progress value="<%= progress_number %>" max="100" style="width: 200px;"></progress>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    <%- if current_user && @user_runs %>
+      <p>These are the runs you've done: </p>
+      <%- @user_runs.each_with_index do |activity, index| %>
+        <p>You just ran <%= (activity["total_distance"]/1609.34).round(3) %> miles.</p>
+      <% end %>
+    <% end %>
+  </div>
+  <div id="completed">
+    <h1>UGH<h1>
+  </div>
+  <div id="leaderboard">
+    <h2>TOP RUNNERS</h2>
+    <%= render :partial => "shared/leaderboard" %>
   </div>
 </div>
-
-</body>
-</html>
