@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130602002759) do
 
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "provider"
-    t.string   "uid"
-  end
-
   create_table "funds", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",                                   :null => false
@@ -32,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20130602002759) do
     t.string   "avatar_url"
     t.decimal  "target_amount", :precision => 10, :scale => 0
     t.decimal  "raised_amount", :precision => 10, :scale => 0
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "provider"
+    t.string   "uid"
   end
 
 end

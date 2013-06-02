@@ -9,8 +9,8 @@ gem 'omniauth-runkeeper'
 gem 'mysql2'
 gem 'httparty'
 gem 'slim'
-gem 'health_graph', :git => 'git://github.com/kennyma/health_graph.git'
 gem 'bootstrap-sass', '~> 2.3.1.3'
+gem 'runkeeper'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,6 +28,7 @@ end
 
 group :development, :test do
   gem 'mysql2'
+  gem 'debugger'
 end
 
 group :production do
