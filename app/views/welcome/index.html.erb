@@ -13,14 +13,19 @@
       <tr>
         <th>Name</th>
         <th>Picture</th>
-     
+        <th>Amount Raised</th>
+        <th>Progress</th>
       </tr>
 
     <% @funds.each do |fund| %>
       <tr>
         <td><%= fund.name %></td>
         <td><%= image_tag(fund.avatar_url) %></td>
-     
+        <td>$<%= fund.raised_amount %> / <%= fund.target_amount %></td>
+        <td>
+          <%= progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>%
+          <progress value="<%= progress_number %>" max="100" style="width: 200px;"></progress>
+        </td>
       </tr>
     <% end %>
     </table>
