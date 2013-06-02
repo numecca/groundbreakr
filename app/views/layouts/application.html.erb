@@ -27,7 +27,10 @@
         </div>
         <% if current_user %>
           <div class="user_panel">
-          <h2>JEREMY HOFFING</h2>
+          <h2><%= runkeeper_user.name.upcase %></h2>
+          <div class="runkeeper_profile_image">
+            <%= image_tag('profile-images.png', width: '500', height: '145') %>
+          </div>
           <div class="user_stats_container">
             <table>
               <tr>
@@ -56,7 +59,12 @@
             <%= image_tag('watsi-logo.png', height: '23', width: '100', class: 'featured-logo' ) %>
             <%= image_tag("http://images-1.good.is/albums/crop?image_url=" + featured_fund.avatar_url + "&geometry=120x120%23", class: 'featured_avatar') %>
             </div>
+            <div class="featured_text"><p>YOU'VE RUN X MILES FOR <%= featured_fund.name.upcase %></p></div>
+            <div class="featured_fund_progress_bar"><% progress_number = ((featured_fund.raised_amount.to_f/featured_fund.target_amount.to_f)*100).round(0) %>
+            <progress value="<%= progress_number %>" max="100" style="width: 330px;"></progress></div>
+            <div class="percent_completed"><%= progress_number %>%<div class="subtext">COMPLETED</div></div>
             <div class="featured_fund_stat">$<%= featured_fund.raised_amount %> / <%= featured_fund.target_amount %></div>
+            <div class="heros">32 HEROES</div>
           </div>
           </div>
           

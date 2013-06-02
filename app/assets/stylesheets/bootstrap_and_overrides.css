@@ -66,11 +66,11 @@ body {
 
 .user_panel {
   font-family: "Proxima Nova";
-  width: 631px;
-  height: 380px;
+  width: 610px;
+  height: 404px;
   background: #FFF;
   background-color: rgba(255, 255, 255, 0.85);
-  margin: 80px auto;
+  margin: 70px auto;
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
@@ -81,11 +81,16 @@ body {
   font-size:18px;
   color: #452446;
   text-align: center;
+  margin-bottom: 0px;
+}
+.runkeeper_profile_image {
+  width:500px;
+  margin: 0 auto;
 }
 
 .user_stats_container{
   font-family: "Proxima Nova";
-  margin: 0 auto;
+  margin: 7px auto 0 auto;
   width:580px;
   height:50px;
   -moz-border-radius: 8px;
@@ -111,7 +116,7 @@ body {
 }
 
 .user_fund_container{
-  padding: 0 10px 0 10px;
+  padding: 0 0px 0 10px;
   margin: 20px auto 0 auto;
   width:560px;
   height:120px;
@@ -120,7 +125,26 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, .10);
 }
+.featured_fund_progress_bar{
+  height:14px;
+}
 
+.percent_completed {
+  width:100px;
+  float:left;
+  border-right: 1px solid #DDD;
+  height:75px;
+}
+
+.featured_fund_stat {
+  width:100px;
+  float:left;
+}
+
+.heros {
+  width:100px;
+  float:left;
+}
 .featured-logo {
   float:left;
   padding-top:40px;
