@@ -3,9 +3,10 @@ class SessionsController < ApplicationController
   require "net/http"
   
   def create
-    user = User.from_omniauth(env['omniauth.auth'])
-    session[:user_id] = user.id  
-    redirect_to root_url, notice: "Signed in."
+   user = User.from_omniauth(env['omniauth.auth'])
+   session[:user_id] = user.id
+   # TODO: Redirect to user show page
+   redirect_to root_url, notice: "Signed in."
   end
   
   def destroy
