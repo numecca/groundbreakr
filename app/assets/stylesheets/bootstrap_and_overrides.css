@@ -39,7 +39,7 @@ body {
   color: #333333;
   display: inline-block;
   width: 300px;
-  height: 400px;
+  height: 420px;
   background-color: white;
 }
 .fund-tile:nth-child(1), .fund-tile:nth-child(2){
@@ -55,10 +55,15 @@ body {
 }
 .fund-stats .stat-block {
   display: inline-block;
-  padding: 10px 25px;
+  padding: 5px 13px;
   border-left: 1px solid #efefef;
   margin: 0px;
-
+  text-align: center;
+}
+.fund-stats .stat-block .stat-info {
+  font-size:10px;
+  color: #6b376b;
+  font-weight: bold;
 }
 .fund-info .fund-blurb {
   display: block;
@@ -262,7 +267,22 @@ a#toggle-watsi {
   width: 265px;
   height: 143px;
   background-color: transparent;
+  /*background-color: white;*/
   top: 518px;
+  background: url('/assets/watsi.png') no-repeat center;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  filter: alpha(opacity=100);
+  opacity: 1.0;
+}
+a#toggle-watsi:hover {
+    background-color: transparent;
+    zoom: 1;
+    filter: alpha(opacity=0);
+    opacity: 0.0;
 }
 .container {
   width: 1064px;
