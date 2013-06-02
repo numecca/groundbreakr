@@ -46,8 +46,24 @@ a#toggle-watsi {
   position: absolute;
   width: 265px;
   height: 143px;
-  background-color: transparent;
+  /*background-color: transparent;*/
+  background-color: white;
   top: 518px;
+  background: url('/assets/watsi.png') no-repeat center;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+    filter: alpha(opacity=100);
+    opacity: 1.0;
+}
+a#toggle-watsi:hover {
+    background-color: transparent;
+    zoom: 1;
+    filter: alpha(opacity=0);
+    opacity: 0.0;
+
 }
 .container {
   width: 1064px;
