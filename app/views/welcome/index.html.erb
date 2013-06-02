@@ -30,7 +30,7 @@
             <div class="stat-info">COMPLETED</div>
           </div>
           <div class="stat-block">
-            $<%= fund.raised_amount %> / <%= fund.target_amount %>
+            $<%= fund.raised_amount.to_s.split('.').first %> / <%= fund.target_amount.to_s.split('.').first %>
             <div class="stat-info">RAISED SO FAR</div>
           </div>
           <div class="stat-block">
@@ -53,7 +53,6 @@
     <% @completed_funds.each do |fund| %>
       <div class="funded-tile">
         <%= image_tag(fund.avatar_url) %>
-        <%- progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>
         <progress value="100" max="100"></progress>
         <div class="fund-info">
           <div class="fund-blurb">
