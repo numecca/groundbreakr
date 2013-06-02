@@ -148,11 +148,11 @@ body {
 }
 
 .user_panel {
-  width: 631px;
-  height: 380px;
+  width: 610px;
+  height: 404px;
   background: #FFF;
   background-color: rgba(255, 255, 255, 0.85);
-  margin: 80px auto;
+  margin: 70px auto;
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
@@ -162,11 +162,16 @@ body {
   font-size:18px;
   color: #452446;
   text-align: center;
+  margin-bottom: 0px;
+}
+.runkeeper_profile_image {
+  width:500px;
+  margin: 0 auto;
 }
 
 .user_stats_container{
-  margin: 0 auto;
-  width:580px;
+  margin: 7px auto 0 auto;
+  width:570px;
   height:50px;
   -moz-border-radius: 8px;
   background: #FFF;
@@ -191,7 +196,7 @@ body {
 }
 
 .user_fund_container{
-  padding: 0 10px 0 10px;
+  padding: 0 0px 0 10px;
   margin: 20px auto 0 auto;
   width:560px;
   height:120px;
@@ -200,7 +205,47 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, .10);
 }
+.featured_fund_progress_bar{
+  height:14px;
+}
 
+.featured-right-container{
+  float:left;
+  text-align: center;
+}
+
+.percent_completed {
+  width:100px;
+  float:left;
+  border-right: 1px solid #DDD;
+  height:57px;
+  padding-top: 18px;
+}
+
+.featured_fund_stat {
+  width: 124px;
+  border-right: 1px solid #DDD;
+  height: 57px;
+  float:left;
+  padding-top: 18px;
+}
+
+.featured_text p {
+  margin:0;
+  padding: 6px;
+}
+
+.subtext {
+  font-size:10px;
+  color: #6b376b;
+  font-weight: bold;
+}
+
+.heros {
+  width:100px;
+  float:left;
+  padding-top: 18px;
+}
 .featured-logo {
   float:left;
   padding-top:40px;
