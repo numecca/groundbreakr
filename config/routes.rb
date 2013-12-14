@@ -4,10 +4,10 @@ Groundbreakr::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
 
-  resources :funds
-
+  resources :projects, only: [:index]
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
+  get '/home', to: 'users#show', as: 'home'
   root to: 'welcome#index'
 
   # The priority is based upon order of creation:

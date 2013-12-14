@@ -1,0 +1,28 @@
+<div style="color: white">
+  <h1>Listing projects</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Description</th>
+      <th>Target Amount</th>
+      <th>Raised Amount</th>
+      <th>Link</th>
+    </tr>
+
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.name %></td>
+      <td><%= project.country %></td>
+      <td><%= project.description %></td>
+      <td><%= project.target_amount %></td>
+      <td><%= project.raised_amount %></td>
+      <td><%= link_to "Profile", project.profile_url %></td>
+      <td><%= link_to "Avatar", project.avatar_url %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+</div>

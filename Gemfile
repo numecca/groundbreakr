@@ -1,14 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'omniauth'
 gem 'omniauth-runkeeper'
-gem 'mysql2'
 gem 'httparty'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'slim'
 gem 'runkeeper'
 gem 'high_voltage'
@@ -16,19 +14,21 @@ gem 'high_voltage'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
   gem 'haml'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 end
 
 group :development, :test do
   gem 'mysql2'
   gem 'debugger'
+  gem 'pry'
 end
 
 group :production do

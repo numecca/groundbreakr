@@ -8,82 +8,21 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<div class="content-wrapper">
-  <% if current_user %>
-    <div class="top_fold_signed_in">
-  <% else %>
-    <div class="top_fold_signed_out">
-    <a href="/auth/runkeeper" id="toggle-runkeeper"></a>
-  <% end %>
-    <a href="#" id="toggle-watsi"></a>
-    <div class="container">
-        <div id="user_nav">
-          <% if current_user %>
-            Signed in as <%= current_user.name %>
-            <%= link_to "Sign out", signout_path %>
-          <% else %>
-            <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
-          <% end %>
-        </div>
-        <% if current_user %>
-          <div class="user_panel">
-          <h2><%= runkeeper_user.name.upcase %></h2>
-          <div class="runkeeper_profile_image">
-            <%= image_tag('profile-images.png', width: '500', height: '145') %>
-          </div>
-          <div class="user_stats_container">
-            <table>
-              <tr>
-                <th>PROJECTS</th>
-                <th></th>
-                <th></th>
-                <th>TOTAL IMPACT</th>
-                <th></th>
-                <th></th>
-                <th>MILES</th>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td>$<%= database_user.total_donated %></td>
-                <td></td>
-                <td></td>
-                <td><%= database_user.total_distance %></td>
-              </tr>
-              </table>
 
-          </div>
-          <div class="user_fund_container">
-            <div class="fund_avatar"/> 
-            <%= image_tag('watsi-logo.png', height: '23', width: '100', class: 'featured-logo' ) %>
-            <%= image_tag("http://images-1.good.is/albums/crop?image_url=" + featured_fund.avatar_url + "&geometry=120x120%23", class: 'featured_avatar') %>
-            </div>
-            <div class="featured-right-container">
-            <div class="featured_text"><p>YOU'VE RUN <%= database_user.total_distance %> MILES FOR <%= featured_fund.name.upcase %></p></div>
-            <% contribution = featured_fund.raised_amount %>
-            <% if contribution  > featured_fund.target_amount %>
-              <% contribution = featured_fund.target_amount %>
-            <% end %>
-            <div class="featured_fund_progress_bar"><% progress_number = ((contribution.to_f/featured_fund.target_amount.to_f)*100).round(0) %>
-            <progress value="<%= progress_number %>" max="100" style="width: 330px;"></progress></div>
-            <div class="percent_completed"><%= progress_number %>%<div class="subtext">COMPLETED</div></div>
-            <div class="featured_fund_stat">$<%= contribution %> / <%= featured_fund.target_amount %><div class="subtext">RAISED SO FAR</div></div>
-            <div class="heros">32<div class="subtext">HEROES</div></div>
-          </div>
-          </div>
-          </div>
-          
-        <% end %>
-    </div>
-  </div>
-  <div class="content">
-    <div class="shit">
-      <%= yield %>
-    </div>
-  </div>
-</div>
+  <body>
 
-</body>
+    <div class="content-wrapper">
+
+      <div class="container">
+        <%= render 'sessions/manage' %>
+      </div>
+
+      <div class="content">
+        <%= yield %>
+      </div>
+
+    </div>
+
+  </body>
+
 </html>

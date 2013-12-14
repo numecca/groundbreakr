@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  provider: MyString
+  uid: 1
+  omniauth_token: MyString
+
+two:
+  user: 
+  provider: MyString
+  uid: 1
+  omniauth_token: MyString

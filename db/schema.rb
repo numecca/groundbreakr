@@ -11,30 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602225518) do
+ActiveRecord::Schema.define(:version => 20131214210214) do
 
-  create_table "funds", :force => true do |t|
+  create_table "access_grants", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.integer  "uid"
+    t.string   "omniauth_token"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "access_grants", ["provider", "uid"], :name => "index_access_grants_on_provider_and_uid"
+  add_index "access_grants", ["user_id"], :name => "index_access_grants_on_user_id"
+
+  create_table "projects", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
     t.string   "country"
     t.string   "description"
     t.string   "profile_url"
     t.string   "avatar_url"
-    t.decimal  "target_amount", :precision => 10, :scale => 0
-    t.decimal  "raised_amount", :precision => 10, :scale => 0
+    t.decimal  "target_amount", :precision => 10, :scale => 0, :default => 0
+    t.decimal  "raised_amount", :precision => 10, :scale => 0, :default => 0
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                                                     :null => false
-    t.datetime "updated_at",                                                     :null => false
-    t.string   "provider"
-    t.integer  "uid"
-    t.integer  "run_count"
+    t.string   "photo_url"
+    t.integer  "run_count",                                     :default => 0
     t.decimal  "total_distance", :precision => 10, :scale => 2, :default => 0.0
     t.decimal  "total_donated",  :precision => 10, :scale => 2, :default => 0.0
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
   end
 
 end

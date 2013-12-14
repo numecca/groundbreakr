@@ -10,27 +10,27 @@
     <h1>CURRENT RUNS FOR WATSI</h1>
 
 
-    <div class="funds-container">
-    <% @funds.each do |fund| %>
-      <div class="fund-tile">
-        <%= image_tag(fund.avatar_url) %>
-        <%- progress_number = ((fund.raised_amount.to_f/fund.target_amount.to_f)*100).round(0) %>
+    <div class="projects-container">
+    <% @projects.each do |project| %>
+      <div class="project-tile">
+        <%= image_tag(project.avatar_url) %>
+        <%- progress_number = ((project.raised_amount.to_f/project.target_amount.to_f)*100).round(0) %>
         <progress value="<%= progress_number %>" max="100"></progress>
-        <div class="fund-info">
-          <div class="fund-blurb">
-            <h3><%= fund.name %>'s Story</h3>
-            <%= fund.description %>
+        <div class="project-info">
+          <div class="project-blurb">
+            <h3><%= project.name %>'s Story</h3>
+            <%= project.description %>
           </div>
-          <div class="fund-sponsor">
+          <div class="project-sponsor">
           </div>
         </div>
-        <div class="fund-stats">
+        <div class="project-stats">
           <div class="stat-block">
             <%= (70..130).to_a.sample %>
             <div class="stat-info">COMPLETED</div>
           </div>
           <div class="stat-block">
-            $<%= fund.raised_amount.to_s.split('.').first %> / <%= fund.target_amount.to_s.split('.').first %>
+            $<%= project.raised_amount.to_s.split('.').first %> / <%= project.target_amount.to_s.split('.').first %>
             <div class="stat-info">RAISED SO FAR</div>
           </div>
           <div class="stat-block">
@@ -38,10 +38,10 @@
             <div class="stat-info">HEROES</div>
           </div>
         </div>
-        <div class="fund-button">
+        <div class="project-button">
           <a href="/auth/runkeeper" class="run-button">RUN FOR THIS</a>
         </div>
-  
+
       </div>
     <% end %>
   </div>
@@ -49,20 +49,20 @@
   <div id="completed">
     <h1>COMPLETED RUNS FOR WATSI</h1>
 
-    <div class="funds-container">
-    <% @completed_funds.each do |fund| %>
-      <div class="funded-tile">
-        <%= image_tag(fund.avatar_url) %>
+    <div class="projects-container">
+    <% @completed_projects.each do |project| %>
+      <div class="projected-tile">
+        <%= image_tag(project.avatar_url) %>
         <progress value="100" max="100"></progress>
-        <div class="fund-info">
-          <div class="fund-blurb">
-            <h3><%= fund.name %>'s Story</h3>
-            <%= fund.description %>
+        <div class="project-info">
+          <div class="project-blurb">
+            <h3><%= project.name %>'s Story</h3>
+            <%= project.description %>
           </div>
-          <div class="fund-sponsor">
+          <div class="project-sponsor">
           </div>
         </div>
-        <div class="funded-button">
+        <div class="projected-button">
         </div>
       </div>
     <% end %>
