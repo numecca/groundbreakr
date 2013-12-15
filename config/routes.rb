@@ -7,7 +7,7 @@ Groundbreakr::Application.routes.draw do
   resources :projects, only: [:index]
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
-  get '/home', to: 'users#show', as: 'home'
+  get '/home', to: 'users#home', as: 'home'
   root to: 'welcome#index'
 
   # The priority is based upon order of creation:

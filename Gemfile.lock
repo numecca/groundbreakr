@@ -134,6 +134,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     runkeeper (0.0.3)
       httparty
     sass (3.2.12)
@@ -182,6 +184,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 3.2.16)
+  rest-client
   runkeeper
   sass-rails
   slim

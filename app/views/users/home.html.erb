@@ -1,6 +1,6 @@
 <div class="user_panel">
 
-  <div class="runkeeper_profile_image">
+  <div class="user_header">
     <%= image_tag current_user.photo_url, width: 100, class: "round" %>
   </div>
 
@@ -49,5 +49,23 @@
       <div class="heros">32<div class="subtext">HEROES</div>
     </div>
   </div>
+
+  <table>
+    <tr>
+      <% @wishbone.first.keys.each do |key| %>
+        <th><%= key %></th>
+      <% end %>
+    </tr>
+    <tbody>
+      <% @wishbone.each do |bone| %>
+        <tr>
+          <% bone.values.each do |val| %>
+            <td><%= truncate(val.to_s, length: 20) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
 
 </div>

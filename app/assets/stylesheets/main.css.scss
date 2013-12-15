@@ -1,3 +1,16 @@
+.container {
+  background-color: #999;
+  max-width: 1000px;
+}
+
+#user_nav {
+  position: relative;
+  .manage_session {
+    position: absolute;
+    right: 20px;
+  }
+}
+
 img.round {
   border-radius: 100px;
   border: 2px solid #ccc;

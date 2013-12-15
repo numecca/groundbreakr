@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20131214210214) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "country"
-    t.string   "description"
+    t.text     "description"
     t.string   "profile_url"
     t.string   "avatar_url"
     t.decimal  "target_amount", :precision => 10, :scale => 0, :default => 0
