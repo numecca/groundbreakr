@@ -10,9 +10,9 @@ module WishboneAPI
 
     def sort_by_funding(order="low_to_high")
       if order == 'low_to_high'
-        unfunded.sort { |a,b| ((a["total_fees"]-a["left_to_raise"]) / a["total_fees"]) <=> ((b["total_fees"]-b["left_to_raise"]) / b["total_fees"]) }
+        unfunded.sort { |a,b| (percent_complete(a["left_to_raise"], a["total_fees"])) <=> (percent_complete(b["left_to_raise"], b["total_fees"])) }
       else
-        unfunded.sort { |b,a| ((a["total_fees"]-a["left_to_raise"]) / a["total_fees"]) <=> ((b["total_fees"]-b["left_to_raise"]) / b["total_fees"]) }
+        unfunded.sort { |b,a| (percent_complete(a["left_to_raise"], a["total_fees"])) <=> (percent_complete(b["left_to_raise"], b["total_fees"])) }
       end
     end
 
@@ -34,6 +34,12 @@ module WishboneAPI
         proj.target_amount = json["total_fees"]
         proj.raised_amount = json["total_fees"] - json["left_to_raise"]
       end
+    end
+
+    private
+
+    def percent_complete(left, total)
+      (left - total) / total
     end
 
   end

@@ -4,7 +4,8 @@
       Signed in as <%= current_user.name %>
       <%= link_to "Sign out", signout_path %>
     <% else %>
-      <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%>
+      <%= link_to "Sign in with Runkeeper", "/auth/runkeeper"%><br/>
+      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "fb_link" %>
     <% end %>
   </div>
 </div>

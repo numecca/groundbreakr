@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def home
-    @wishbone = WishboneAPI.unfunded
+    @wishbone = WishboneAPI.sort_by_funding
   end
 
   private

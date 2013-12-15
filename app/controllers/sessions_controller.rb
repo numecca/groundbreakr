@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
   def create
     user = User.from_omniauth(env['omniauth.auth'])
-
     session[:user_id] = user.id
     # TODO: Redirect to user show page
     redirect_to home_path, notice: "Signed in."

@@ -1,3 +1,4 @@
+<% featured_project = Project.last %>
 <div class="user_panel">
 
   <div class="user_header">
@@ -19,39 +20,42 @@
         <td>9</td>
         <td></td>
         <td></td>
-        <td><%= number_to_currency database_user.total_donated %></td>
+        <td><% current_user.total_donated %></td>
         <td></td>
         <td></td>
-        <td><%= database_user.total_distance %></td>
+        <td><%= current_user.total_distance %></td>
       </tr>
     </table>
   </div>
 
   <div class="user_project_container">
-
-    <div class="fund_avatar"/>
-      <%= image_tag('watsi-logo.png', height: '23', width: '100', class: 'featured-logo' ) %>
-      <%= image_tag("http://images-1.good.is/albums/crop?image_url=" + featured_project.avatar_url + "&geometry=120x120%23", class: 'featured_avatar') if featured_project.avatar_url %>
-    </div>
-
-    <div class="featured-right-container">
-      <div class="featured_text">
-        <p>YOU'VE RUN <%= database_user.total_distance %> MILES FOR <%= featured_project.name.upcase %></p>
+    <% if current_user.current_project %>
+      <div class="fund_avatar"/>
+        <%= image_tag('watsi-logo.png', height: '23', width: '100', class: 'featured-logo' ) %>
+        <%= image_tag("http://images-1.good.is/albums/crop?image_url=" + current_user.current_project.avatar_url + "&geometry=120x120%23", class: 'featured_avatar') if featured_project.avatar_url %>
       </div>
-      <% contribution = featured_project.raised_amount %>
-      <% if contribution  > featured_project.target_amount %>
-        <% contribution = featured_project.target_amount %>
-      <% end %>
-      <div class="featured_project_progress_bar"><% progress_number = ((contribution.to_f/featured_project.target_amount.to_f)*100).round(0) %>
-      <progress value="<%= progress_number %>" max="100" style="width: 330px;"></progress></div>
-      <div class="percent_completed"><%= progress_number %>%<div class="subtext">COMPLETED</div></div>
-      <div class="featured_project_stat">$<%= contribution %> / <%= featured_project.target_amount %><div class="subtext">RAISED SO FAR</div></div>
-      <div class="heros">32<div class="subtext">HEROES</div>
-    </div>
+
+      <div class="featured-right-container">
+
+        <% progress_number = ((contribution.to_f/current_user.projects.last.target_amount.to_f)*100).round(0) %>
+
+        <div class="featured_project_progress_bar">
+          <progress value="<%= progress_number %>" max="100" style="width: 330px;"></progress>
+        </div>
+
+
+        <div class="percent_completed"><%= progress_number %>%<div class="subtext">COMPLETED</div></div>
+        <div class="featured_project_stat">$<%= contribution %> / <%= featured_project.target_amount %><div class="subtext">RAISED SO FAR</div></div>
+        <div class="heros">32<div class="subtext">HEROES</div>
+      </div>
+    <% else %>
+      <h3>You don't have any projects yet!</h3>
+    <% end %>
   </div>
 
   <table>
     <tr>
+      <td>Percent funded</td>
       <% @wishbone.first.keys.each do |key| %>
         <th><%= key %></th>
       <% end %>
@@ -59,8 +63,17 @@
     <tbody>
       <% @wishbone.each do |bone| %>
         <tr>
+          <td>
+            <%= number_to_percentage(((bone["total_fees"]-bone["left_to_raise"])/bone["total_fees"])*100) %>
+          </td>
           <% bone.values.each do |val| %>
-            <td><%= truncate(val.to_s, length: 20) %></td>
+            <td>
+              <% if val.to_s.match(/http/) %>
+                <%= link_to "link", val %>
+              <% else %>
+                <%= truncate(val.to_s, length: 20) %>
+              <% end %>
+            </td>
           <% end %>
         </tr>
       <% end %>

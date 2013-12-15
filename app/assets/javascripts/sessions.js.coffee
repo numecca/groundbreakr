@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+
+  $('#fb_link').on 'click', ->
+    if window.location.hostname != 'lvh.me'
+      alert 'this fb key uses lvh.me instead of localhost in development'
+      window.location.replace('http://lvh.me:3000/auth/facebook')
+      return false
